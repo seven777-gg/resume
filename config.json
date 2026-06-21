@@ -1,0 +1,130 @@
+{
+  "profile": {
+    "avatar": "images/avatar.jpg",
+    "name": "桂碧霞",
+    "gender": "女",
+    "age": "25岁",
+    "title": "商业修图师",
+    "jobIntention": "修图师",
+    "expectedSalary": "15-16K",
+    "expectedCity": "长沙 / 深圳",
+    "workYears": "4年",
+    "bio": "稳定高质型商业修图师，四年修图经验，专注于 3C 产品精修（手机 / 耳机 / 穿戴设备），服务过 OPPO、华为等品牌。擅长产品光影重塑、材质还原（金属 / 玻璃 / 塑料）、AI 场景合成。月稳定产出 40+ 张 3C 类 KV/ID 图，交付通过率 95%+。有主见的执行者，在保证品牌调性的前提下主动优化光影与构图。",
+    "contact": {
+      "phone": "",
+      "email": "2094208916@qq.com",
+      "wechat": "18773147976",
+      "location": "长沙市"
+    }
+  },
+  "highlights": [
+    "月稳定产出 40+ 张 3C 类 KV/ID 图，交付通过率 95%+",
+    "AI 场景合成：人物 + 产品 + 虚拟背景，合成周期缩短 30%",
+    "全流程独立：从素材筛选、修图、AI 场景合成到终稿交付，可独立对接品牌方",
+    "深度服务 OPPO、华为、岚图、星巴克、瑞幸等品牌，快速理解并落地不同品牌视觉语言"
+  ],
+  "education": [
+    {
+      "school": "湖南农业大学继续教育学院",
+      "major": "人力资源管理",
+      "degree": "自考本科",
+      "start": "2020",
+      "end": "2023"
+    },
+    {
+      "school": "湖南软件职业技术大学",
+      "major": "数字媒体艺术",
+      "degree": "大专",
+      "start": "2018",
+      "end": "2021"
+    }
+  ],
+  "experience": [
+    {
+      "company": "自由职业",
+      "position": "修图师",
+      "start": "2026.02",
+      "end": "至今",
+      "description": "为 OPPO、vivo、小米等品牌提供 3C 电子产品修图服务，涵盖手机、穿戴设备等品类的 KV/ID 图精修。空余时间持续沉淀学习 AI 技术，紧跟行业发展趋势，将 AI 工具融入修图工作流，显著提高工作效率与出图质量。"
+    },
+    {
+      "company": "湖南马修文化传媒有限公司",
+      "position": "修图师",
+      "start": "2022.05",
+      "end": "2026.01",
+      "description": "专注美妆 & 3C 品类，同时覆盖食品、汽车、家电，累计 300+ 商业成片。美妆类：护肤、彩妆产品精修，擅长玻璃/塑料包材质感还原、液体通透感提升。3C 类：手机、耳机、穿戴设备光影重塑，金属/玻璃材质精准还原，确保多角度一致性。全流程独立：从素材筛选、修图、AI 场景合成到终稿交付，可独立对接品牌方。承担团队终审质检角色，保障交付质量。",
+      "achievement": "负责 OPPO 新品手机主视觉修图，8 张主视觉 + 20+ 细节图；深度服务 OPPO、华为、岚图、星巴克、瑞幸等品牌。"
+    },
+    {
+      "company": "湖南悦耳云在线教育科技有限公司",
+      "position": "视频拍摄与剪辑（实习）",
+      "start": "2021.07",
+      "end": "2022.05",
+      "description": "负责视频拍摄和后期剪辑，将内容上传至各大社交平台进行推广。"
+    }
+  ],
+  "projects": [
+    {
+      "name": "OPPO 新品手机主视觉修图",
+      "role": "产品修图师",
+      "start": "2025.12",
+      "end": "2026.01",
+      "description": "负责 OPPO 新品 KV/ID 图的精细化修图工作，包括 AI 场景合成（人物与产品的光影融合、色调匹配及场景协调），全流程从素材优化到最终交付独立完成，严格遵循排期在规定期限内交付成品。",
+      "achievement": "OPPO 后期修图项目（KV/ID）成功斩获万元以上收益。前期与 OPPO 方深入沟通产品特点与宣传重点，精准把握修图风格；中期不断根据反馈优化色调与构图；后期快速响应修改直至满意效果，顺利完成项目交付。"
+    },
+    {
+      "name": "岚图汽车后期修图",
+      "role": "汽车修图师",
+      "start": "2025.11",
+      "end": "2025.12",
+      "description": "负责岚图汽车新车发布会的后期修图工作。前期素材整理与筛选分类，挑选最能展现汽车外观和性能特点的素材；中期进行精细修饰，修复车身瑕疵、调整车漆光泽度、整体场景调色确保颜色准确还原；后期与团队密切协作，全面检查修图细节。",
+      "achievement": "结合各方反馈灵活调整修图方案，不断优化图片达到最佳视觉呈现效果，为岚图汽车新车发布会提供高质量视觉素材，助力发布会取得圆满成功。"
+    }
+  ],
+  "skills": [
+    { "name": "产品光影重塑", "level": "精通" },
+    { "name": "材质质感还原", "level": "精通" },
+    { "name": "AI 场景合成", "level": "精通" },
+    { "name": "Adobe Photoshop", "level": "精通" },
+    { "name": "Adobe Lightroom", "level": "熟练" },
+    { "name": "Capture One", "level": "熟练" },
+    { "name": "品牌视觉调性把控", "level": "精通" },
+    { "name": "视频拍摄与剪辑", "level": "熟练" }
+  ],
+  "portfolio": {
+    "title": "作品集",
+    "description": "点击图片可放大查看 · 滚轮缩放 · 拖拽浏览",
+    "categories": [
+      {
+        "name": "3C 产品",
+        "images": [
+          { "src": "images/3c-01.jpg", "caption": "OPPO 手机 KV 主视觉" },
+          { "src": "images/3c-02.jpg", "caption": "OPPO 手机 ID 图" },
+          { "src": "images/3c-03.jpg", "caption": "vivo 手机精修" },
+          { "src": "images/3c-04.jpg", "caption": "华为手机主视觉" },
+          { "src": "images/3c-05.jpg", "caption": "穿戴设备修图" }
+        ]
+      },
+      {
+        "name": "美妆产品",
+        "images": [
+          { "src": "images/beauty-01.jpg", "caption": "护肤品精修" },
+          { "src": "images/beauty-02.jpg", "caption": "彩妆产品修图" },
+          { "src": "images/beauty-03.jpg", "caption": "香水瓶精修" },
+          { "src": "images/beauty-04.jpg", "caption": "口红质感特写" },
+          { "src": "images/beauty-05.jpg", "caption": "粉底液通透感" }
+        ]
+      },
+      {
+        "name": "美食产品",
+        "images": [
+          { "src": "images/food-01.jpg", "caption": "瑞幸咖啡产品" },
+          { "src": "images/food-02.jpg", "caption": "星巴克产品后期" },
+          { "src": "images/food-03.jpg", "caption": "烘焙类精修" },
+          { "src": "images/food-04.jpg", "caption": "饮品光影质感" },
+          { "src": "images/food-05.jpg", "caption": "包装食品修图" }
+        ]
+      }
+    ]
+  }
+}

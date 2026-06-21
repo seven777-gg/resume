@@ -1,0 +1,758 @@
+/* ============================================================
+   简历网站 - 流动极光 · KV 大图
+   Phase 3：流动极光层 · 全局大字 · 纯分类作品集
+   ============================================================ */
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #04040f;
+  --card: rgba(255,255,255,0.025);
+  --text: #e2e1e9;
+  --text-dim: #b0b0c8;
+  --text-muted: #6e6e88;
+  --accent: #c9a96e;
+  --accent-dim: #8b7548;
+  --border: rgba(255,255,255,0.06);
+  --border-light: rgba(255,255,255,0.14);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: "KaiTi", "STKaiti", "楷体", "Kai", "BiauKai", serif;
+  line-height: 2.1;
+  color: var(--text);
+  background: var(--bg);
+  overflow-x: hidden;
+}
+
+/* ============================================================
+   流动极光层 - 3 层叠加
+   ============================================================ */
+
+/* 极光层 1：绿色光带，大幅飘移 */
+.aurora-layer {
+  position: fixed;
+  inset: -20%;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.9;
+  background:
+    /* 主极光带 - 绿 - 加亮 */
+    radial-gradient(ellipse 2000px 500px at 20% 35%, rgba(25,180,120,0.25) 0%, transparent 55%),
+    /* 副带 - 蓝绿 */
+    radial-gradient(ellipse 1600px 400px at 65% 45%, rgba(20,150,160,0.20) 0%, transparent 55%),
+    /* 紫色光带 */
+    radial-gradient(ellipse 1800px 400px at 40% 60%, rgba(90,35,160,0.18) 0%, transparent 55%),
+    /* 远处蓝光 */
+    radial-gradient(ellipse 1500px 450px at 75% 30%, rgba(25,60,180,0.16) 0%, transparent 55%),
+    /* 底部暖光 */
+    radial-gradient(ellipse 1200px 350px at 55% 75%, rgba(60,40,28,0.12) 0%, transparent 55%);
+  filter: blur(50px);
+  animation: auroraDrift 22s ease-in-out infinite alternate;
+}
+
+@keyframes auroraDrift {
+  0% {
+    opacity: 0.75;
+    transform: translate(-8%, -5%) scale(1);
+  }
+  33% {
+    opacity: 1;
+    transform: translate(12%, 8%) scale(1.15);
+  }
+  66% {
+    opacity: 0.8;
+    transform: translate(-5%, -10%) scale(0.92);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(10%, 5%) scale(1.12);
+  }
+}
+
+/* 极光层 2：快速飘动的亮带 */
+body::before {
+  content: "";
+  position: fixed;
+  inset: -50%;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    radial-gradient(ellipse 1400px 300px at 50% 50%, rgba(35,220,145,0.18) 0%, transparent 60%),
+    radial-gradient(ellipse 1000px 250px at 30% 70%, rgba(130,50,230,0.14) 0%, transparent 60%),
+    radial-gradient(ellipse 1200px 200px at 70% 20%, rgba(20,100,200,0.12) 0%, transparent 60%);
+  filter: blur(70px);
+  animation: auroraFast 14s ease-in-out infinite alternate;
+}
+
+@keyframes auroraFast {
+  0% { transform: translate(-15%, -8%) rotate(-5deg); opacity: 0.6; }
+  33% { transform: translate(12%, 10%) rotate(8deg); opacity: 1; }
+  66% { transform: translate(5%, -12%) rotate(-3deg); opacity: 0.7; }
+  100% { transform: translate(-2%, 8%) rotate(4deg); opacity: 1; }
+}
+
+/* 星星 */
+.starfield {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  width: 0; height: 0;
+  box-shadow:
+    /* 亮星第一组 */
+    6vw 4vh 0 0 rgba(255,255,255,0.9),
+    19vw 8vh 0 1px rgba(255,255,255,0.75),
+    33vw 3vh 0 0 rgba(255,255,255,0.85),
+    48vw 10vh 0 0 rgba(255,255,255,0.7),
+    64vw 6vh 0 0 rgba(255,255,255,0.8),
+    79vw 9vh 0 1px rgba(255,255,255,0.7),
+    93vw 4vh 0 0 rgba(255,255,255,0.85),
+    9vw 13vh 0 0 rgba(255,255,255,0.7),
+    26vw 16vh 0 0 rgba(255,255,255,0.75),
+    43vw 14vh 0 0 rgba(255,255,255,0.8),
+    57vw 17vh 0 0 rgba(255,255,255,0.7),
+    73vw 11vh 0 1px rgba(255,255,255,0.75),
+    89vw 16vh 0 0 rgba(255,255,255,0.7),
+    15vw 21vh 0 0 rgba(255,255,255,0.65),
+    39vw 23vh 0 0 rgba(255,255,255,0.7),
+    59vw 20vh 0 0 rgba(255,255,255,0.65),
+    68vw 26vh 0 0 rgba(255,255,255,0.7),
+    83vw 22vh 0 0 rgba(255,255,255,0.65),
+    96vw 19vh 0 0 rgba(255,255,255,0.7),
+    7vw 31vh 0 0 rgba(255,255,255,0.6),
+    /* 中亮星 */
+    23vw 29vh 0 0 rgba(255,255,255,0.45),
+    37vw 33vh 0 0 rgba(255,255,255,0.5),
+    52vw 28vh 0 0 rgba(255,255,255,0.4),
+    67vw 34vh 0 0 rgba(255,255,255,0.5),
+    81vw 30vh 0 1px rgba(255,255,255,0.45),
+    11vw 38vh 0 0 rgba(255,255,255,0.4),
+    29vw 41vh 0 0 rgba(255,255,255,0.5),
+    45vw 37vh 0 0 rgba(255,255,255,0.4),
+    61vw 43vh 0 0 rgba(255,255,255,0.45),
+    76vw 39vh 0 0 rgba(255,255,255,0.4),
+    91vw 36vh 0 0 rgba(255,255,255,0.45),
+    17vw 46vh 0 0 rgba(255,255,255,0.4),
+    35vw 49vh 0 0 rgba(255,255,255,0.35),
+    51vw 45vh 0 1px rgba(255,255,255,0.4),
+    69vw 48vh 0 0 rgba(255,255,255,0.35),
+    85vw 44vh 0 0 rgba(255,255,255,0.4),
+    8vw 53vh 0 0 rgba(255,255,255,0.4),
+    25vw 56vh 0 0 rgba(255,255,255,0.35),
+    41vw 52vh 0 0 rgba(255,255,255,0.4),
+    58vw 57vh 0 0 rgba(255,255,255,0.35),
+    74vw 53vh 0 1px rgba(255,255,255,0.4),
+    90vw 56vh 0 0 rgba(255,255,255,0.35),
+    /* 暗星 */
+    13vw 61vh 0 0 rgba(255,255,255,0.3),
+    31vw 59vh 0 0 rgba(255,255,255,0.25),
+    47vw 63vh 0 0 rgba(255,255,255,0.3),
+    63vw 60vh 0 0 rgba(255,255,255,0.25),
+    80vw 64vh 0 0 rgba(255,255,255,0.28),
+    95vw 61vh 0 0 rgba(255,255,255,0.2),
+    9vw 69vh 0 0 rgba(255,255,255,0.22),
+    27vw 66vh 0 0 rgba(255,255,255,0.25),
+    44vw 71vh 0 0 rgba(255,255,255,0.2),
+    59vw 68vh 0 1px rgba(255,255,255,0.25),
+    75vw 73vh 0 0 rgba(255,255,255,0.18),
+    91vw 69vh 0 0 rgba(255,255,255,0.2),
+    16vw 77vh 0 0 rgba(255,255,255,0.2),
+    34vw 75vh 0 0 rgba(255,255,255,0.18),
+    51vw 79vh 0 0 rgba(255,255,255,0.22),
+    66vw 76vh 0 0 rgba(255,255,255,0.18),
+    83vw 81vh 0 0 rgba(255,255,255,0.2),
+    6vw 86vh 0 0 rgba(255,255,255,0.18),
+    23vw 84vh 0 0 rgba(255,255,255,0.15),
+    39vw 88vh 0 0 rgba(255,255,255,0.18),
+    56vw 85vh 0 0 rgba(255,255,255,0.15),
+    71vw 89vh 0 0 rgba(255,255,255,0.18),
+    87vw 86vh 0 0 rgba(255,255,255,0.15),
+    19vw 93vh 0 0 rgba(255,255,255,0.12),
+    46vw 94vh 0 0 rgba(255,255,255,0.12),
+    71vw 95vh 0 0 rgba(255,255,255,0.1);
+  border-radius: 50%;
+}
+
+/* 内容层级 */
+header, main, footer { position: relative; z-index: 1; }
+
+
+/* ============================================================
+   头部 - 头像置顶居中
+   ============================================================ */
+
+header {
+  padding: 90px 0 50px;
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.header-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 36px;
+  padding: 0 20px;
+}
+
+.avatar {
+  width: 170px;
+  height: 170px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: #1a1a2a;
+  border: 2px solid rgba(255,255,255,0.22);
+  box-shadow: 0 0 80px rgba(150,185,225,0.15);
+}
+
+.header-text { text-align: center; }
+
+.name {
+  font-size: 3.2rem;
+  font-weight: normal;
+  letter-spacing: 12px;
+  color: #fff;
+  margin-bottom: 8px;
+  line-height: 1.2;
+}
+
+.meta-info {
+  font-size: 1.05rem;
+  color: var(--text-dim);
+  letter-spacing: 5px;
+  margin-bottom: 16px;
+}
+
+.title {
+  font-size: 1.4rem;
+  color: var(--accent);
+  letter-spacing: 8px;
+  font-weight: normal;
+  margin-bottom: 12px;
+}
+
+.job-intention {
+  font-size: 1.05rem;
+  color: var(--accent-dim);
+  letter-spacing: 4px;
+  margin-bottom: 20px;
+}
+
+.bio {
+  font-size: 1.1rem;
+  color: var(--text-dim);
+  line-height: 2.1;
+  margin-bottom: 24px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.contact-info {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 28px;
+  justify-content: center;
+}
+
+.contact-item {
+  font-size: 1.05rem;
+  color: var(--text-dim);
+  letter-spacing: 2px;
+}
+
+.contact-item::before {
+  content: attr(data-label) "：";
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  margin-right: 4px;
+}
+
+/* ============================================================
+   主体容器
+   ============================================================ */
+
+main {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ============================================================
+   板块通用
+   ============================================================ */
+
+section { margin-bottom: 90px; }
+
+.section-title {
+  font-size: 0.95rem;
+  font-weight: normal;
+  letter-spacing: 12px;
+  color: var(--accent);
+  margin-bottom: 42px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.section-title::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+.section-desc {
+  font-size: 1rem;
+  color: var(--text-muted);
+  margin-bottom: 32px;
+  letter-spacing: 4px;
+  margin-top: -30px;
+}
+
+/* ============================================================
+   个人优势 - 统一卡片
+   ============================================================ */
+
+.highlights-list {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.highlight-item {
+  font-size: 1.05rem;
+  color: var(--text-dim);
+  padding: 30px 28px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  line-height: 1.9;
+  letter-spacing: 1.5px;
+  min-height: 100%;
+  transition: border-color 0.3s, background 0.3s;
+}
+
+.highlight-item:hover {
+  border-color: var(--border-light);
+  background: rgba(255,255,255,0.04);
+}
+
+/* ============================================================
+   工作经历 / 项目经历
+   ============================================================ */
+
+.exp-item {
+  text-align: center;
+  padding: 30px 0;
+  border-bottom: 1px solid var(--border);
+  max-width: 650px;
+  margin: 0 auto;
+}
+.exp-item:first-child { padding-top: 0; }
+.exp-item:last-child { border-bottom: none; padding-bottom: 0; }
+
+.item-date {
+  font-size: 0.9rem;
+  color: var(--accent-dim);
+  letter-spacing: 4px;
+  margin-bottom: 6px;
+}
+
+.item-title {
+  font-size: 1.25rem;
+  font-weight: normal;
+  letter-spacing: 4px;
+  color: #fff;
+  margin-bottom: 4px;
+}
+
+.item-subtitle {
+  font-size: 1.05rem;
+  color: var(--accent);
+  letter-spacing: 3px;
+  margin-bottom: 8px;
+}
+
+.item-desc {
+  font-size: 1.05rem;
+  color: var(--text-dim);
+  line-height: 2;
+  letter-spacing: 1px;
+}
+
+.item-achievement {
+  margin-top: 12px;
+  font-size: 1rem;
+  color: var(--text-dim);
+  line-height: 1.9;
+}
+
+/* ============================================================
+   教育背景
+   ============================================================ */
+
+.edu-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--border);
+  flex-wrap: wrap;
+  gap: 12px;
+  font-size: 1.05rem;
+}
+.edu-item:last-child { border-bottom: none; }
+
+/* ============================================================
+   技能
+   ============================================================ */
+
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.skill-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 26px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  font-size: 1.05rem;
+  letter-spacing: 3px;
+  color: var(--text-dim);
+  transition: border-color 0.3s, color 0.3s;
+}
+.skill-tag:hover { border-color: var(--accent-dim); color: #fff; }
+.skill-name { font-weight: normal; }
+.skill-level {
+  color: var(--accent);
+  font-size: 0.85rem;
+  letter-spacing: 4px;
+  padding-left: 10px;
+  border-left: 1px solid var(--border);
+}
+
+/* ============================================================
+   作品集 - 纯分类 · KV 大图
+   ============================================================ */
+
+.portfolio-categories {
+  display: flex;
+  flex-direction: column;
+  gap: 70px;
+}
+
+.portfolio-cat-title {
+  font-size: 1.3rem;
+  font-weight: normal;
+  letter-spacing: 10px;
+  color: #fff;
+  margin-bottom: 28px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--border);
+}
+
+.portfolio-cat-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+
+/* 首张全宽 KV */
+.portfolio-cat-grid .portfolio-item:first-child {
+  grid-column: 1 / -1;
+}
+.portfolio-cat-grid .portfolio-item:first-child .portfolio-img-wrapper {
+  aspect-ratio: 16 / 7;
+}
+
+.portfolio-item { cursor: pointer; }
+
+.portfolio-img-wrapper {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: 2px;
+  background: #0e0e1a;
+  border: 1px solid var(--border);
+  transition: border-color 0.35s, transform 0.35s;
+  position: relative;
+}
+.portfolio-img-wrapper:hover {
+  border-color: var(--border-light);
+  transform: translateY(-3px);
+}
+
+.portfolio-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.7s;
+}
+.portfolio-img-wrapper:hover .portfolio-img { transform: scale(1.05); }
+
+/* 悬停提示 */
+.portfolio-img-wrapper::after {
+  content: "点击查看大图";
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  background: rgba(0,0,0,0.8);
+  color: #fff;
+  font-size: 0.82rem;
+  letter-spacing: 4px;
+  padding: 8px 16px;
+  border-radius: 2px;
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+  z-index: 2;
+}
+.portfolio-img-wrapper:hover::after { opacity: 1; }
+
+/* ============================================================
+   灯箱
+   ============================================================ */
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  background: rgba(0,0,0,0.94);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+}
+.lightbox.active { opacity: 1; pointer-events: auto; }
+
+.lightbox-img {
+  max-width: 85vw;
+  max-height: 85vh;
+  object-fit: contain;
+  cursor: zoom-in;
+  transition: transform 0.2s ease-out;
+  user-select: none;
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 24px; right: 30px;
+  font-size: 40px;
+  color: #fff;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 1;
+  opacity: 0.5;
+  transition: opacity 0.2s;
+  font-family: inherit;
+}
+.lightbox-close:hover { opacity: 1; }
+
+.lightbox-caption {
+  position: absolute;
+  bottom: 30px; left: 50%;
+  transform: translateX(-50%);
+  color: #fff;
+  font-size: 1rem;
+  letter-spacing: 4px;
+  opacity: 0.6;
+}
+
+.lightbox-controls {
+  position: absolute;
+  bottom: 30px; right: 30px;
+  display: flex; gap: 8px; z-index: 1;
+}
+
+.lightbox-zoom-btn {
+  width: 42px; height: 42px;
+  border: 1px solid rgba(255,255,255,0.25);
+  background: rgba(0,0,0,0.5);
+  color: #fff;
+  font-size: 22px;
+  cursor: pointer;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s, border-color 0.2s;
+  font-family: inherit;
+  line-height: 1;
+}
+.lightbox-zoom-btn:hover {
+  background: rgba(255,255,255,0.12);
+  border-color: rgba(255,255,255,0.4);
+}
+
+.lightbox-prev, .lightbox-next {
+  position: absolute;
+  top: 50%; transform: translateY(-50%);
+  font-size: 48px;
+  color: #fff;
+  background: none;
+  border: none;
+  cursor: pointer;
+  opacity: 0.3;
+  transition: opacity 0.2s;
+  font-family: inherit;
+  padding: 24px;
+}
+.lightbox-prev { left: 6px; }
+.lightbox-next { right: 6px; }
+.lightbox-prev:hover, .lightbox-next:hover { opacity: 0.7; }
+
+/* ============================================================
+   页脚
+   ============================================================ */
+
+footer {
+  text-align: center;
+  padding: 90px 0 70px;
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  letter-spacing: 5px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+footer::before {
+  content: "";
+  display: block;
+  width: 40px;
+  height: 1px;
+  background: var(--accent-dim);
+  margin: 0 auto 28px;
+}
+
+/* ============================================================
+   编辑按钮
+   ============================================================ */
+
+#edit-toggle {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 9999;
+  padding: 10px 20px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: #fff;
+  font-family: inherit;
+  font-size: 0.9rem;
+  letter-spacing: 3px;
+  cursor: pointer;
+  border-radius: 4px;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s;
+}
+
+#edit-toggle:hover {
+  background: rgba(255,255,255,0.15);
+  border-color: rgba(255,255,255,0.35);
+}
+
+#edit-toggle.active {
+  background: rgba(201,169,110,0.2);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* 编辑中的元素高亮 */
+.editing {
+  outline: 1px dashed rgba(255,255,255,0.15) !important;
+  outline-offset: 4px;
+  border-radius: 2px;
+  transition: outline-color 0.2s;
+}
+
+.editing:focus {
+  outline-color: rgba(201,169,110,0.5) !important;
+  background: rgba(255,255,255,0.02);
+}
+
+/* Toast 提示 */
+#edit-toast {
+  position: fixed;
+  bottom: 90px;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  background: rgba(0,0,0,0.85);
+  color: #fff;
+  padding: 10px 24px;
+  border-radius: 100px;
+  font-size: 0.85rem;
+  letter-spacing: 2px;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s, transform 0.3s;
+}
+
+#edit-toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+.error {
+  text-align: center;
+  padding: 100px 20px;
+  font-size: 1.2rem;
+  color: #c44;
+  position: relative;
+  z-index: 1;
+}
+
+/* ============================================================
+   响应式
+   ============================================================ */
+
+@media (max-width: 768px) {
+  header { padding: 50px 0 30px; }
+  .avatar { width: 140px; height: 140px; }
+  .name { font-size: 2.4rem; letter-spacing: 8px; }
+  .title { font-size: 1.15rem; }
+  .bio { font-size: 1rem; max-width: 100%; }
+  .job-intention { font-size: 0.95rem; }
+  .contact-info { gap: 18px; }
+
+  .highlights-list { grid-template-columns: 1fr; }
+  .highlight-item { font-size: 1rem; padding: 24px 20px; }
+
+  .exp-item {
+    max-width: 100%;
+    padding: 24px 0;
+  }
+  .item-title { font-size: 1.15rem; }
+  .item-desc { font-size: 1rem; }
+
+  .portfolio-cat-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .portfolio-cat-grid .portfolio-item:first-child .portfolio-img-wrapper {
+    aspect-ratio: 4 / 3;
+  }
+  .portfolio-categories { gap: 50px; }
+  .portfolio-cat-title { font-size: 1.15rem; letter-spacing: 6px; }
+
+  .section-title { font-size: 0.85rem; letter-spacing: 8px; }
+  section { margin-bottom: 60px; }
+
+  .lightbox-prev, .lightbox-next { font-size: 32px; padding: 12px; }
+}
