@@ -207,6 +207,7 @@ function renderPortfolio(portfolio) {
     section.innerHTML = `
       <h2 class="section-title">${portfolio.title || '作品集'}</h2>
       ${portfolio.description ? `<p class="section-desc">${portfolio.description}</p>` : ''}
+      <p class="portfolio-disclaimer">（修图作品仅供参考 · 不做商用 · 不可外泄）</p>
       <div class="portfolio-categories">${categoryBlocks}</div>
     `;
 
@@ -238,6 +239,7 @@ function renderPortfolio(portfolio) {
     section.innerHTML = `
       <h2 class="section-title">${portfolio.title || '作品集'}</h2>
       ${portfolio.description ? `<p class="section-desc">${portfolio.description}</p>` : ''}
+      <p class="portfolio-disclaimer">（修图作品仅供参考 · 不做商用 · 不可外泄）</p>
       <div class="portfolio-grid">${images}</div>
     `;
 
